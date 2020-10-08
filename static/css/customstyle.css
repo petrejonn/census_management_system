@@ -1,0 +1,12 @@
+.login-form-button {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.card-department-head h4,
+.card-department-name h3 {
+    color: white;
+    font-weight: 900;
+    letter-spacing: 1px;
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block page_head %}
+<h3><i class="fa fa-angle-right"></i> Manage Local Government</h3>
+{% endblock page_head %}
+
+
+{% block content %}
+<div class="col-lg-offset-1 col-lg-8">
+    <div class="alert alert-danger">
+        <form method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            <input type="submit" class="btn btn-danger" value="Confirm">
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/customstyle.css' %}">
+{% endblock style %}
+
+
+{% block pageID %}
+login-page
+{% endblock pageID %}
+
+
+{% block content %}
+<form class="form-login" method="POST">
+    {% csrf_token %}
+    <h2 class="form-login-heading">sign in now</h2>
+    <div class="login-wrap">
+        {{form|crispy}}
+        <div class="login-form-button">
+            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i>
+                SIGN IN</button>
+        </div>
+
+        <!-- <hr> -->
+        <div class="login-social-link centered">
+
+            <!-- <div class="registration">
+                Don't have an account yet?<br />
+                <a class="" href="/register">
+                    Create an account
+                </a>
+            </div> -->
+        </div>
+
+</form>
+{% endblock content %}

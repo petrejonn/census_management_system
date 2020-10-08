@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block page_head %}
+<h3><i class="fa fa-angle-right"></i> Manage Departments</h3>
+<a class="btn btn-theme" href="{% url 'core:department_create' %}"><i class="fa fa-plus"></i> Add Department</a>
+{% endblock page_head %}
+
+
+{% block content %}
+<div class="col-lg-12">
+    <div class="row">
+        {% for department in department_list %}
+        <div class="col-md-4 col-sm-4 mb">
+            <div class="darkblue-panel pn">
+                <div class="darkblue-header">
+                    <h5 class="text-uppercase centered">{{department.department_name}}</h5>
+                </div>
+                <h1 class=" mt"><i class="fa fa-building fa-2x"></i></h1>
+                <p class="text-uppercase">{{department.department_head}}</p>
+                <footer>
+                    <div class="centered">
+                        <h5><i class="fa fa-group"></i> {{department.staffs.count}}</h5>
+                    </div>
+                    <div>
+                        <a class="btn btn-sm btn-theme" href="{% url 'core:department_update' department.id %}">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class=" btn btn-sm btn-theme04" href="{% url 'core:department_delete' department.id %}">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </div>
+                </footer>
+            </div>
+            <!--  /darkblue panel -->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

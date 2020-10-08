@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block page_head %}
+<h3><i class="fa fa-angle-right"></i> Manage Staffs</h3>
+<a href="{% url 'core:staff_create' %}" class="btn btn-theme pull-right" type="submit"><i class="fa fa-plus"></i> Add
+    Staff</a>
+{% endblock page_head %}
+
+
+{% block content %}
+<div class="col-lg-12">
+    <div class="row">
+
+        {% for staff in staff_list %}
+        <div class="col-lg-4 col-md-4 col-sm-4 mb">
+            <div class="content-panel pn" style="background: #444c57;">
+                <div id="profile-01" style="background: #444c57;">
+                    <h3>{{staff.fullname}}</h3>
+                    <h6>{{staff.department}} Department</h6>
+                </div>
+                <div class="col-lg-offset-1 col-lg-10 centered mt">
+                    <a href="{% url 'core:staff_update' staff.id %}" class="btn btn-sm btn-theme" type="submit"><i
+                            class="fa fa-pencil"></i> Edit</a>
+                    <a href="{% url 'core:staff_delete' staff.id %}" class="btn btn-sm btn-theme04" type="button"><i
+                            class="fa fa-trash"></i> Delete</a>
+                </div>
+                <div class="centered">
+                    <h6>{{staff.email}}</h6>
+                </div>
+            </div>
+            <!-- /content-panel -->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
